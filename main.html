@@ -3,11 +3,15 @@
         <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     </head>
     <body>
-        <div class="h-captcha" data-sitekey="aa248ff9-af1b-4dc1-867a-d696ab1a03a1" data-callback="processData"></div>
+        <input type="text" id="control" name="Control">
+        <input type="text" id="name" name="Last Name">
+        <div class="h-captcha" data-sitekey="4aeea2ba-896b-44c5-b4a9-31ae51ad41ca" data-callback="processData"></div>
+        <p id="results"></p>
         <script>
             function processData(captcha){
-                var sendData = fetch("https://script.google.com/macros/s/AKfycbwg8CdNsUXhTVmobQ60149aAodkrCgUBM7Ob5hyluk2dk7-ZPB-E88OQ8VteCFtPzH3/exec?token=" + captcha).then((response) => response.json()).then((data) => console.log(data));
-                //console.log(captcha);
+                var control = document.getElementById("control").value
+                var name = document.getElementById("name").value
+                var sendData = fetch("https://script.google.com/macros/s/AKfycbxcLGTL2IlFm1ASECpNGE52o-HqKF4l-oEUCtq8LOxQPTMN3nDoE7H224hFVbwbGqnRlw/exec?token=" + captcha + "&control=" + control + "&name=" + name).then((response) => response.json()).then((data) => document.getElementById("results").innerHTML = data;);
             }
         </script>
     </body>
