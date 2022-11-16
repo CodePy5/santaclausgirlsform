@@ -14,7 +14,7 @@
             function processData(captcha){
                 var control = document.getElementById("control").value
                 var name = document.getElementById("name").value
-                var sendData = fetch("https://script.google.com/macros/s/AKfycbxcLGTL2IlFm1ASECpNGE52o-HqKF4l-oEUCtq8LOxQPTMN3nDoE7H224hFVbwbGqnRlw/exec?token=" + captcha + "&control=" + control + "&name=" + name).then((response) => response.json()).then((data) => writeResults(data));
+                var sendData = fetch("https://script.google.com/macros/s/AKfycbwSuXqnFhxlGQKjYivYYgEC23Fm1k1GsZIVeZxvQGr-Xa2VDAwbM8eaGTffuFoU1QF5iA/exec?token=" + captcha + "&control=" + control + "&name=" + name).then((response) => response.json()).then((data) => writeResults(data));
             }
         </script>
     </body>
