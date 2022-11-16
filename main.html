@@ -9,7 +9,10 @@
         <p id="results"></p>
         <script>
             function writeResults(results){
-                document.getElementById("results").innerHTML = results;
+                document.getElementById("results").innerHTML = "";
+                for (var dp = 0; dp < results.length; dp++){
+                    document.getElementById("results").innerHTML = document.getElementById("results").innerHTML + "\n" + results[dp];
+                }
             }
             function processData(captcha){
                 var control = document.getElementById("control").value
