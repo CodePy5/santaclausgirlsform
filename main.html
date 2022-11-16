@@ -10,8 +10,11 @@
         <script>
             function writeResults(results){
                 document.getElementById("results").innerHTML = "";
+                var displayMask = ["Date Submitted", "Control Number", false, false, false, false, false, false, "First Name", "Last Name", "Email Address", "Phone Number", false, false, false, false, "Street Address", "Apartment", "City", "State", "ZIP Code", "Delivery Instructions", "Special Needs", "Children", "1st Child Name", "1st Child Age", "1st Child Gender", "2nd Child Name", "2nd Child Age", "2nd Child Gender", "3rd Child Name", "3rd Child Age", "3rd Child Gender", "4th Child Name", "4th Child Age", "4th Child Gender", "5th Child Name", "5th Child Age", "5th Child Gender", "6th Child Name", "6th Child Age", "6th Child Gender", "7th Child Name", "7th Child Age", "7th Child Gender", "8th Child Name", "8th Child Age", "8th Child Gender", "9th Child Name", "9th Child Age", "9th Child Gender", "10th Child Name", "10th Child Age", "10th Child Gender"]; 
                 for (var dp = 0; dp < results.length; dp++){
-                    document.getElementById("results").innerHTML = document.getElementById("results").innerHTML + "<br/>" + results[dp];
+                    if (displayMask[dp] != false && results[dp] != ""){
+                        document.getElementById("results").innerHTML = document.getElementById("results").innerHTML + "<br/>" + displayMask[dp] + ": " + results[dp];
+                    }
                 }
             }
             function processData(captcha){
