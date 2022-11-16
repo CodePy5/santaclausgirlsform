@@ -6,7 +6,8 @@
         <div class="h-captcha" data-sitekey="aa248ff9-af1b-4dc1-867a-d696ab1a03a1" data-callback="processData"></div>
         <script>
             function processData(captcha){
-                console.log(captcha);
+                var sendData = fetch("https://script.google.com/macros/s/AKfycby9H6XQSLU8rYJ3adGqcRWHevScvtVj4FIYhBKvtYyNVpBKq3DtIUxGKQRA5JOaZfVw/exec?token=" + captcha).then((response) => response.json()).then((data) => console.log(data));
+                //console.log(captcha);
             }
         </script>
     </body>
