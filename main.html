@@ -3,6 +3,11 @@
         <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     </head>
     <body>
-        <div class="h-captcha" data-sitekey="aa248ff9-af1b-4dc1-867a-d696ab1a03a1"></div>
+        <div class="h-captcha" data-sitekey="aa248ff9-af1b-4dc1-867a-d696ab1a03a1" data-callback="processData"></div>
+        <script>
+            function processData(captcha){
+                console.log(captcha);
+            }
+        </script>
     </body>
 </html>
