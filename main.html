@@ -28,7 +28,7 @@
             function processData(captcha){
                 var control = document.getElementById("control").value
                 var name = document.getElementById("name").value
-                document.getElementById("inputstuff").innerHTML = "<img src=\"https://controlcheck.artezza.io/candycane.gif\""/>
+                document.getElementById("inputstuff").innerHTML = "<img src=\"https://controlcheck.artezza.io/candycane.gif\"/>";
                 var sendData = fetch("https://script.google.com/macros/s/AKfycbzLv13fY2m-N2oY6EDuvq2o7oUjltL9umo7_YiYqml2wGXBtqDiCxPv2JpPVoWxfKTV/exec?token=" + captcha + "&control=" + control + "&name=" + name).then((response) => response.json()).then((data) => writeResults(data));
             }
         </script>
