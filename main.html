@@ -3,13 +3,16 @@
         <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     </head>
     <body>
-        <input type="text" placeholder="Enter Control # Here" id="control" name="Control">
-        <input type="text" placeholder="Enter Your Last Name Here" id="name" name="Last Name">
-        <div class="h-captcha" data-sitekey="4aeea2ba-896b-44c5-b4a9-31ae51ad41ca" data-callback="processData"></div>
+        <div id="inputstuff">
+            <input type="text" placeholder="Enter Control # Here" id="control" name="Control">
+            <input type="text" placeholder="Enter Your Last Name Here" id="name" name="Last Name">
+            <div class="h-captcha" data-sitekey="4aeea2ba-896b-44c5-b4a9-31ae51ad41ca" data-callback="processData"></div>
+        </div>
         <p id="results"></p>
         <script>
             function writeResults(results){
                 document.getElementById("results").innerHTML = "";
+                document.getElementById("inputstuff").innerHTML = "";
                 if (results[0] == "ERR"){
                     document.getElementById("results").innerHTML = "Sorry! We ran into a problem showing you this information. The error code is: " + results[1];
                 }
@@ -25,6 +28,7 @@
             function processData(captcha){
                 var control = document.getElementById("control").value
                 var name = document.getElementById("name").value
+                document.getElementById("inputstuff").innerHTML = "<img src=\"https://controlcheck.artezza.io/candycane.gif\""/>
                 var sendData = fetch("https://script.google.com/macros/s/AKfycbzLv13fY2m-N2oY6EDuvq2o7oUjltL9umo7_YiYqml2wGXBtqDiCxPv2JpPVoWxfKTV/exec?token=" + captcha + "&control=" + control + "&name=" + name).then((response) => response.json()).then((data) => writeResults(data));
             }
         </script>
